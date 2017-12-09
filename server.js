@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var orm = require("./config/orm.js");
 
 // Sets up the Express App
 // =============================================================
@@ -26,8 +27,17 @@ app.use(express.static("public"));
 //main route
 require("./routes/html-routes.js")(app);
 
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+orm.selectWhere("title", "city_state", "category", "item_description", "contact", "img_link", function(result){
+  var data = result;
+  console.log(data);
+  console.log("Retrieve");
 });
+
+
+
+// Sequelize Functionality
+// db.sequelize.sync({ force: true }).then(function() {
+//   app.listen(PORT, function() {
+//     console.log("App listening on PORT " + PORT);
+//   });
+// });
