@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- jQuery JS 3.1.0 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Bootstrap CSS 3.3.7 -->
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Bootstrap JS 3.3.7 -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+
+		<div class="container-fluid">
+
+
+			<ul class="nav navbar-nav navbar-left nav-large-font">
+				<li>
+					<a href="signup.html">
+						<button class="btn btn-info btn-round">Sign up</button>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<button class="btn btn-info btn-round" data-toggle="modal" data-target="#myModal">Log in</button>
+					</a>
+				</li>
+			</ul>
+
+
+			<ul class="nav navbar-nav navbar-right nav-large-font">
+				<li>
+					<a href="post.html">
+						<button class="btn btn-give btn-info">Give!</button>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</nav>
+
+	<div class="vertical-center">
+		<div class="container container-center">
+			<div class="row">
+				<div class="text-center col-md-12">
+
+					<!-- INSERT TITLE HERE -->
+
+					<h1 id="title" class="text-center">GiftList</h1>
+
+					<div class="form-adjustment">
+						<form action="#" class="form-inline">
+							<div class="form-group">
+								<div class="input-group">
+									<input type="text" class="form-control input-lg" id="gg-search">
+									<div class="input-group-addon input-group-addon-transparent">
+										<i class="fa fa-microphone fa-lg"></i>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="button-adjustment">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4">
+								<button class="btn btn-md search-btn">Search</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Log in modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="login-card">
+			<h1>Log in</h1>
+			<br>
+			<form>
+				<input type="text" name="user" placeholder="Username">
+				<input type="password" name="pass" placeholder="Password">
+				<input type="submit" name="login" class="login login-submit" value="Log in">
+			</form>
+
+			<div class="login-help">
+				<a href="#">Register</a> •
+				<a href="#">Forgot Password</a>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="navbar navbar-default navbar-fixed-bottom">
+
+		<div class="container-fluid">
+
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#">Advestising</a>
+				</li>
+				<li>
+					<a href="#">Business</a>
+				</li>
+				<li>
+					<a href="#">About</a>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#">Privacy</a>
+				</li>
+				<li>
+					<a href="#">Terms</a>
+				</li>
+				<li>
+					<a href="#">Settings</a>
+				</li>
+				<li>
+					<a href="#">Use Google.co.th</a>
+				</li>
+			</ul>
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</footer>
+</body>
+
+</html>
