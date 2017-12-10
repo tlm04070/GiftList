@@ -51,13 +51,10 @@ router.get("/users", function(req, res) {
 
 router.post("/user/new", function(req, res) {
   var cols = "user_name, phone, email, pass_word";
-  var vals = req.body.vals;
-  var newVals = vals.join(", ");
-  var stringVals = JSON.stringify(newVals);
-  console.log("Newvals: " + stringVals);
-
-  user.create(cols, stringVals, function returnDataToController(data) {
-    res.json({ data });
+  var vals = [req.body.name, req.body.phone, req.body.email, req.body.pass];
+  console.log(vals);
+  user.create(cols, vals, function returnDataToController(result) {
+    res.json({ result });
   });
 });
 

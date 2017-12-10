@@ -66,29 +66,32 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function () {
+
 		$(".btn-post").on("click", function (event) {
 			event.preventDefault();
-			var name = $("#exampleInputName").val().trim();
-			var phone = $("#exampleInputPhone").val().trim();
-			var email = $("#exampleInputEmail").val().trim();
-			var pass = $("#exampleInputPassword").val().trim();
 
-			console.log("name: " + name + ", phone: " + phone + ", email: " + email + ", password: " + pass);
+			var newUser = {
+				name: $("#exampleInputName").val().trim(),
+				phone: $("#exampleInputPhone").val().trim(),
+				email: $("#exampleInputEmail").val().trim(),
+				pass: $("#exampleInputPassword").val().trim(),
+			};
 
 			$.ajax({
 				method: "POST",
 				url: "/user/new",
 				dataType: "json",
-				data: JSON.stringify{
-					vals: [name, phone, email, pass]
-				}
+				data: newUser
 			}).done(function (response) {
 				//response of post result comes from res.json({result})
 				console.log(response);
+				alert("Thanks for Singing up!");
+				window.location.replace("/");
 			});
 
 
-	});
+		});
+
 	});
 
 </script>
