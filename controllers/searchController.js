@@ -7,12 +7,17 @@ var gift = require("../models/gift.js");
 var user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
+
 router.get("/", function(req, res) {
+  res.render("index");
+});
+
+router.get("/all", function(req, res) {
   gift.all(function returnDataToController(data) {
     var hbsObject = {
       gifts: data
     };
-    res.json(data);
+    res.render("index");
     // console.log(hbsObject);
     // res.render("index", hbsObject);
   });
