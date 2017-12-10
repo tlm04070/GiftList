@@ -1,29 +1,25 @@
 var orm = require("../config/orm.js");
 
 var gift = {
-  all: function(cb) {
-    orm.all("gifts", function(res) {
-      cb(res);
+  all: function(returnDataToController) {
+    orm.all("gifts", function returnDataToModel(results) {
+      returnDataToController(results);
     });
   },
   // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("gifts", cols, vals, function(res) {
-      cb(res);
-    });
-  },
-  update: function(objColVals, condition, cb) {
-    orm.update("gifts", objColVals, condition, function(res) {
-      cb(res);
+  create: function(cols, vals, returnDataToController) {
+    // var columns = cols.join(",");
+    // console.log(columns);
+    // var actualColumns = columns.substr(0, columns.length - 1);
+    console.log("cols" + cols);
+    orm.create("gifts", cols, vals, function returnDataToModel(result) {
+      returnDataToController(result);
     });
   }
 };
 
 // Export the database functions for the controller (giftsController.js).
 module.exports = gift;
-
-
-
 
 // Sequelize functionality:
 // "use strict";

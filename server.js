@@ -5,10 +5,9 @@ var orm = require("./config/orm.js");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3009;
 
 // Requiring our models for syncing
-var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -25,15 +24,12 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 //main route
-require("./routes/html-routes.js")(app);
 
-orm.selectWhere("title", "city_state", "category", "item_description", "contact", "img_link", function(result){
-  var data = result;
-  console.log(data);
-  console.log("Retrieve");
-});
+var routes = require("./controllers/searchController");
 
+app.use("/", routes);
 
+app.listen(PORT);
 
 // Sequelize Functionality
 // db.sequelize.sync({ force: true }).then(function() {
