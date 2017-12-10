@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default top-bar">
+<nav class="navbar navbar-default top-bar" id="nav">
 
 	<div class="container-fluid">
 
@@ -27,9 +27,9 @@
 
 	</div>
 	<!-- /.container-fluid -->
-
 </nav>
-<div class="container">
+
+<div class="container" id="main">
 
 	<h3 class="text-center" id="signup-title">Join GiftList Today!</h3>
 
@@ -58,7 +58,7 @@
 					<input type="checkbox" class="form-check-input inputs"> Check me out
 				</label> -->
 		</div>
-		<button type="submit" class="btn btn-primary btn-post">Submit</button>
+		<button id="submit" type="submit" class="btn btn-primary btn-post">Submit</button>
 	</form>
 
 
@@ -67,8 +67,11 @@
 <script type="text/javascript">
 	$(document).ready(function () {
 
+
+
 		$(".btn-post").on("click", function (event) {
 			event.preventDefault();
+
 
 			var newUser = {
 				name: $("#exampleInputName").val().trim(),
@@ -85,11 +88,14 @@
 			}).done(function (response) {
 				//response of post result comes from res.json({result})
 				console.log(response);
-				alert("Thanks for Singing up!");
-				window.location.replace("/");
+
+				var form = document.getElementById("signup-form");
+				form.reset();
+
+				$("#main").prepend(`<div class="alert alert-success" role="alert">
+					Welcome to GiftList! You can now message others about what they're giving away, as well as post your own things, <a href="/" class="alert-link">Start Browsing</a>
+					</div>`)
 			});
-
-
 		});
 
 	});

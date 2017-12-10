@@ -224,3 +224,8 @@ input[type="password"]:hover {
   background-color: #00b1db;
   width: 200px;
 }
+
+.close {
+  color: #ff9454;
+  background-color: #00b1db;
+}
