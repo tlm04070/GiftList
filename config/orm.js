@@ -21,7 +21,7 @@ var orm = {
   },
   create: function(tableInput, cols, vals, returnDataToModel) {
     console.log("arguments: " + arguments[1]);
-    console.log("arguments: " + arguments[2]);
+    console.log("arguments: (" + arguments[2] + ");");
     var queryString = "INSERT INTO ?? (" + cols + ") VALUES (" + vals + ");";
     connection.query(queryString, [tableInput], function(err, result) {
       if (err) {
