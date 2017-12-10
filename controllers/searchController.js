@@ -12,6 +12,14 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
+router.get("/post", function(req, res) {
+  res.render("post");
+});
+
+router.get("/signup", function(req, res) {
+  res.render("signup");
+});
+
 router.get("/all", function(req, res) {
   gift.all(function returnDataToController(data) {
     var hbsObject = {
@@ -48,5 +56,9 @@ router.post("/user/new", function(req, res) {
   user.create(cols, vals, function returnDataToController(data) {
     res.json({ data });
   });
+});
+
+router.get("*", function(req, res) {
+  res.render("index");
 });
 module.exports = router;
