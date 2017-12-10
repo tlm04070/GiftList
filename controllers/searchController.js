@@ -33,7 +33,7 @@ router.get("/all", function(req, res) {
 
 router.post("/gift", function(req, res) {
   // gift.create()
-  var cols = "title, city_state, category, item_description, contact, img_link";
+  var cols = "title, city_state, category, contact, item_description, img_link";
   var vals = [
     req.body.itemTitle,
     req.body.location,
