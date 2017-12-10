@@ -8,8 +8,6 @@ var user = {
   },
 
   create: function(cols, vals, returnDataToController) {
-    console.log("cols: " + cols);
-    console.log("vals: " + vals);
     orm.create("users", cols, vals, function returnDataToModel(results) {
       returnDataToController(results);
     });

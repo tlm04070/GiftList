@@ -54,6 +54,10 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="itemLocation">Contact</label>
+			<input type="text" class="form-control" id="contact" placeholder="Contact info">
+		</div>
+		<div class="form-group">
 			<label for="itemDescription">Description</label>
 			<textarea class="form-control" id="description" rows="3"></textarea>
 		</div>
@@ -62,58 +66,66 @@
 			<input type="file" class="form-control-file" id="upload">
 			<small id="fileHelp" class="form-text text-muted">Please upload a clear picture of the item you are giving.</small>
 		</div>
-		<button type="submit" class="btn btn-primary btn-post" id="submit">Submit</button>
+		<button type="submit" class="btn btn-primary btn-post center-block" id="submit">Submit</button>
 	</form>
-
-	<footer class="navbar navbar-default navbar-fixed-bottom">
-
-		<div class="container-fluid">
-
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="#">Advestising</a>
-				</li>
-				<li>
-					<a href="#">Business</a>
-				</li>
-				<li>
-					<a href="#">About</a>
-				</li>
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="#">Privacy</a>
-				</li>
-				<li>
-					<a href="#">Terms</a>
-				</li>
-				<li>
-					<a href="#">Settings</a>
-				</li>
-				<li>
-					<a href="#">Use Google.co.th</a>
-				</li>
-			</ul>
-
-		</div>
-		<!-- /.container-fluid -->
-
-	</footer>
-
 </div>
+<footer class="navbar navbar-default navbar-fixed-bottom container-fluid">
+
+	<div class="container-fluid">
+
+		<ul class="nav navbar-nav">
+			<li>
+				<a href="#">Advestising</a>
+			</li>
+			<li>
+				<a href="#">Business</a>
+			</li>
+			<li>
+				<a href="#">About</a>
+			</li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<a href="#">Privacy</a>
+			</li>
+			<li>
+				<a href="#">Terms</a>
+			</li>
+			<li>
+				<a href="#">Settings</a>
+			</li>
+			<li>
+				<a href="#">Use Google.co.th</a>
+			</li>
+		</ul>
+
+	</div>
+	<!-- /.container-fluid -->
+
+</footer>
 <script type="text/javascript">
 
 	$("#submit").on("click", function () {
 
 		var newGift = {
-			itemTitle: $("#itemTitle").val().trim();
-			location: $("#location").val().trim();
-			category: $("#category").val().trim();
-			description: $("#description").val().trim();
-			upload: $("#upload").val().trim();
+			itemTitle: $("#itemTitle").val().trim(),
+			location: $("#location").val().trim(),
+			category: $("#category").val().trim(),
+			contact: $("#contact").val().trim(),
+			description: $("#description").val().trim(),
+			upload: $("#upload").val().trim()
 		};
 		console.log(newGift);
+		$.ajax({
+			method: "POST",
+			url: "/gift",
+			dataType: "json",
+			data: newGift
+		}).done(function (response) {
+			//response of post result comes from res.json({result})
+			console.log("response: " + response);
+		});
 	});
 
 

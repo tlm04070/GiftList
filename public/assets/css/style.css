@@ -42,6 +42,7 @@ button.btn-give {
 
 body {
   background: #edf0f6;
+  overflow: auto;
 }
 
 .vertical-center {
@@ -194,6 +195,7 @@ input[type="password"]:hover {
 
 #post-form {
   margin: 0 200px;
+  overflow: auto;
 }
 
 #signup-form {
@@ -228,4 +230,9 @@ input[type="password"]:hover {
 .close {
   color: #ff9454;
   background-color: #00b1db;
+}
+
+.navbar-fixed-bottom {
+  position: relative;
+  margin-top: 2%;
 }

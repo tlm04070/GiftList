@@ -8,10 +8,6 @@ var gift = {
   },
   // The variables cols and vals are arrays.
   create: function(cols, vals, returnDataToController) {
-    // var columns = cols.join(",");
-    // console.log(columns);
-    // var actualColumns = columns.substr(0, columns.length - 1);
-    console.log("cols" + cols);
     orm.create("gifts", cols, vals, function returnDataToModel(result) {
       returnDataToController(result);
     });
