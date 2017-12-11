@@ -1,0 +1,156 @@
+<nav class="navbar navbar-default top-bar" id="nav">
+
+	<div class="container-fluid">
+
+
+		<ul class="nav navbar-nav navbar-left nav-large-font">
+			<li>
+				<a href="signup">
+					<button class="btn btn-info btn-round">Sign up</button>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<button class="btn btn-info btn-round" data-toggle="modal" data-target="#myModal">Log in</button>
+				</a>
+			</li>
+		</ul>
+
+
+		<ul class="nav navbar-nav navbar-right nav-large-font">
+			<li>
+				<a href="post">
+					<button class="btn btn-give btn-info">Give!</button>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+
+<div class="container" id="main">
+
+	<h3 class="text-center" id="signup-title">Join GiftList Today!</h3>
+
+	<form id="signup-form">
+		<div class="form-group">
+			<!--	<label for="exampleInputEmail1">Full Name</label> -->
+			<input type="text" class="form-control inputs" id="exampleInputName" aria-describedby="emailHelp" placeholder="Full Name">
+
+		</div>
+		<div class="form-group">
+			<!--	<label for="exampleInputEmail1">Full Name</label> -->
+			<input type="text" class="form-control inputs" id="exampleInputPhone" aria-describedby="emailHelp" placeholder="Phone">
+
+		</div>
+
+		<div class="form-group">
+			<!-- <label for="exampleInputEmail1">Email address</label> -->
+			<input type="email" class="form-control inputs" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<!--	<label for="exampleInputPassword1">Password</label> -->
+			<input type="password" class="form-control inputs" id="exampleInputPassword" placeholder="Password">
+		</div>
+		<div class="form-check">
+			<!-- <label class="form-check-label">
+					<input type="checkbox" class="form-check-input inputs"> Check me out
+				</label> -->
+		</div>
+		<button id="submit" type="submit" class="btn btn-primary btn-post center-block">Submit</button>
+	</form>
+
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="login-card">
+			<h1>Log in</h1>
+			<br>
+			<form>
+				<input type="text" name="user" placeholder="Username">
+				<input type="password" name="pass" placeholder="Password">
+				<input type="submit" name="login" class="login login-submit" value="Log in">
+			</form>
+
+			<div class="login-help">
+				<a href="signup">Register</a> •
+				<a href="#">Forgot Password</a>
+			</div>
+		</div>
+	</div>
+
+	<footer class="navbar navbar-default navbar-fixed-bottom container-fluid" id="signupFooter">
+
+		<div class="container-fluid">
+
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#">Advestising</a>
+				</li>
+				<li>
+					<a href="#">Business</a>
+				</li>
+				<li>
+					<a href="#">About</a>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#">Privacy</a>
+				</li>
+				<li>
+					<a href="#">Terms</a>
+				</li>
+				<li>
+					<a href="#">Settings</a>
+				</li>
+				<li>
+					<a href="#">Use Google.co.th</a>
+				</li>
+			</ul>
+
+		</div>
+		<!-- /.container-fluid -->
+
+	</footer>
+
+
+
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+
+
+		$(".btn-post").on("click", function (event) {
+			event.preventDefault();
+
+
+			var newUser = {
+				name: $("#exampleInputName").val().trim(),
+				phone: $("#exampleInputPhone").val().trim(),
+				email: $("#exampleInputEmail").val().trim(),
+				pass: $("#exampleInputPassword").val().trim(),
+			};
+
+			$.ajax({
+				method: "POST",
+				url: "/user/new",
+				dataType: "json",
+				data: newUser
+			}).done(function (response) {
+				//response of post result comes from res.json({result})
+				console.log(response);
+
+				var form = document.getElementById("signup-form");
+				form.reset();
+
+				$("#main").prepend(`<div class="alert alert-success" role="alert">
+					Welcome to GiftList! You can now message others about what they're giving away, as well as post your own things, <a href="/" class="alert-link">Start Browsing</a>
+					</div>`)
+			});
+		});
+
+	});
+
+</script>
