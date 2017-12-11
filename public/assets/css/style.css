@@ -52,6 +52,9 @@ body {
   transform: translate(-50%, -50%);
 }
 
+#post-title {
+  margin-top: 2%;
+}
 #title {
   font-family: "Righteous", cursive;
   font-size: 52px;
@@ -204,7 +207,9 @@ input[type="password"]:hover {
 
 #signup-title {
   font-family: "Righteous", cursive;
-  margin-top: ;
+  margin-top: 2%;
+  font-size: 48px;
+  color: #00b1db;
 }
 
 .inputs {

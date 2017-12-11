@@ -20,6 +20,10 @@ router.get("/signup", function(req, res) {
   res.render("signup");
 });
 
+router.get("/list", function(req, res) {
+  res.render("list");
+});
+
 router.get("/all", function(req, res) {
   gift.all(function returnDataToController(data) {
     var hbsObject = {
