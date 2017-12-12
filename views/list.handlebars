@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default" id="listNavbar">
 
     <div class="container-fluid">
 
@@ -15,8 +15,11 @@
                 </a>
             </li>
         </ul>
-
-
+        <ul class="nav navbar-nav navbar-center nav-large-font">
+            <li>
+                <a href="/" id="navHomeLink">GiftList</a>
+            </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right nav-large-font">
             <li>
                 <a href="post">
@@ -50,35 +53,61 @@
     </div>
 </div>
 
+<div class="container">
+    <ul>
+        {{#each gifts}}
+        <hr>
+        <li>
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="list-group-item-heading">{{title}}</h1>
+                    <br>
+                    <p>{{item_description}}</p>
+                </div>
+                <div class=" col-md-4 ">
+                    <img src="http://lorempixel.com/400/200/ ">
+                </div>
+            </div>
+            {{!--
+            <div class="row ">
+                <div class="col-md-4 ">
+                    <p>{{item_description}}</p>
+                </div>
+            </div> --}}
+        </li>
+        {{/each}}
+    </ul>
+</div>
 
-<footer class="navbar navbar-default navbar-fixed-bottom">
 
-    <div class="container-fluid">
+<footer class="navbar navbar-default navbar-fixed-bottom ">
 
-        <ul class="nav navbar-nav">
+    <div class="container-fluid ">
+
+        <ul class="nav navbar-nav ">
             <li>
-                <a href="#">Advestising</a>
+                <a href="# ">Advestising</a>
             </li>
             <li>
-                <a href="#">Business</a>
+                <a href="# ">Business</a>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="# ">About</a>
             </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right ">
             <li>
-                <a href="#">Privacy</a>
+                <a href="# ">Privacy</a>
             </li>
             <li>
-                <a href="#">Terms</a>
+                <a href="# ">Terms</a>
             </li>
             <li>
-                <a href="#">Settings</a>
+                <a href="# ">Settings</a>
             </li>
             <li>
-                <a href="#">Use Google.co.th</a>
+                <a href="# ">Use Google.co.th</a>
             </li>
         </ul>
 
