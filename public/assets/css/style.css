@@ -3,6 +3,21 @@
 .top-bar {
   background-color: #ff9454;
 }
+#listNavbar {
+  background-color: #ff9454;
+  border-bottom: none;
+}
+#navHomeLink {
+  font-family: "Righteous", cursive;
+  text-shadow: 2px 2px #fff;
+  color: #00b1db;
+  font-size: 30pt;
+}
+
+#navHomeLink:hover {
+  color: #fff;
+  text-shadow: 5px 5px #00b1db;
+}
 
 .navbar-default .nav-large-font > li > a {
   color: #000;
@@ -52,6 +67,9 @@ body {
   transform: translate(-50%, -50%);
 }
 
+#post-title {
+  margin-top: 2%;
+}
 #title {
   font-family: "Righteous", cursive;
   font-size: 52px;
@@ -93,6 +111,14 @@ body {
 @media (max-width: 300px) {
   .navbar.navbar-default.navbar-fixed-top {
     display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
   }
 }
 
@@ -204,7 +230,9 @@ input[type="password"]:hover {
 
 #signup-title {
   font-family: "Righteous", cursive;
-  margin-top: ;
+  margin-top: 2%;
+  font-size: 48px;
+  color: #00b1db;
 }
 
 .inputs {
@@ -235,4 +263,20 @@ input[type="password"]:hover {
 #postFooter {
   position: relative;
   margin-top: 2%;
+}
+
+.list-group-item-heading {
+  font-family: "Righteous", cursive;
+  color: #00b1db;
+  margin-bottom: 1%;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #ff9454;
+  /* old IE */
+  background-color: #ff9454;
+  /* Modern Browsers */
 }
