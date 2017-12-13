@@ -22,3 +22,13 @@ CREATE TABLE gifts
 	(id)
 );
 
+
+CREATE TABLE users
+(
+	id int NOT NULL AUTO_INCREMENT,
+	user_name varchar(255) NOT NULL,
+	phone varchar(255) NOT NULL,
+	email varchar(255) NOT NULL,
+	pass_word varchar(255) NOT NULL,
+	PRIMARY KEY (id)
+);
