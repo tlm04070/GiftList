@@ -84,6 +84,14 @@ router.post("/user/new", function(req, res) {
   });
 });
 
+router.get("/item/:id", function(req, res) {
+  var id = parseInt(req.params.id);
+  gift.findOne(id, function returnDataToController(result) {
+    res.render("item", { id });
+    // res.json({ result });
+  });
+});
+
 router.get("*", function(req, res) {
   res.render("index");
 });

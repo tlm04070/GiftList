@@ -60,7 +60,9 @@
         <li>
             <div class="row">
                 <div class="col-md-8">
-                    <h1 class="list-group-item-heading">{{title}}</h1>
+                    <a href="#" data-id="{{this.id}}" class="item-title">
+                        <h1 class="list-group-item-heading">{{title}}</h1>
+                    </a>
                     <br>
                     <p>{{item_description}}</p>
                 </div>
@@ -109,3 +111,10 @@
     <!-- /.container-fluid -->
 
 </footer>
+
+<script>
+    $(".item-title").on("click", function (event) {
+        event.preventDefault();
+        console.log(this);
+    })
+</script>

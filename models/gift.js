@@ -11,6 +11,12 @@ var gift = {
     orm.create("gifts", cols, vals, function returnDataToModel(result) {
       returnDataToController(result);
     });
+  },
+
+  findOne: function(id, returnDataToController) {
+    orm.findOne("gifts", id, function returnDataToModel(results) {
+      returnDataToController(results);
+    });
   }
 };
 
