@@ -1,7 +1,8 @@
-require('dotenv').config();
+require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var orm = require("./config/orm.js");
+var session = require("express-session");
 
 // Sets up the Express App
 // =============================================================
