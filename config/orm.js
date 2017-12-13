@@ -20,33 +20,51 @@ var orm = {
   //     return result;
   //   });
   // },
-  all: function (tableInput, returnDataToModel) {
+  all: function(tableInput, returnDataToModel) {
     var queryString = "SELECT * FROM ??;";
-    connection.query(queryString, [tableInput], function (err, result) {
+    connection.query(queryString, [tableInput], function(err, result) {
       if (err) {
         throw err;
       }
       returnDataToModel(result);
     });
   },
-  create: function (tableInput, cols, vals, returnDataToModel) {
+  create: function(tableInput, cols, vals, returnDataToModel) {
     console.log("arguments: " + arguments[1]);
     console.log("arguments: (" + arguments[2] + ");");
     var queryString =
-      "INSERT INTO " + tableInput + " (" +
+      "INSERT INTO " +
+      tableInput +
+      " (" +
       cols +
       ") VALUES (" +
       printQuestionMarks(vals.length) +
       ") ";
 
     console.log(queryString);
-    connection.query(queryString, vals, function (err, result) {
+    connection.query(queryString, vals, function(err, result) {
       if (err) {
         throw err;
       }
       console.log(result);
       returnDataToModel(result);
     });
+  },
+  findOne: function(tableName, id, returnDataToModel) {
+    var id_format = parseInt(connection.escape(id));
+
+    connection.query(
+      {
+        sql: "SELECT * FROM " + tableName + " WHERE id = ?",
+        values: [id_format]
+      },
+      function(err, result) {
+        if (err) {
+          throw err;
+        }
+        returnDataToModel(result);
+      }
+    );
   }
 };
 
