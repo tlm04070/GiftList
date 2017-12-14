@@ -25,16 +25,12 @@ router.get("/list", function(req, res) {
     var info = { gifts: [] };
 
     for (var i = 0; i < data.length; i += 1) {
-      // Get the current animal.
+      // Get the current gift.
       var currentGift = data[i];
-
-      // Check if this animal is a pet.
-
-      // If not, push it into our data.anims array.
       info.gifts.push(currentGift);
     }
 
-    console.log(info);
+    //console.log(info);
     res.render("list", info);
   });
 });
@@ -45,7 +41,7 @@ router.get("/all", function(req, res) {
       gifts: data
     };
     // res.render("index");
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.json(hbsObject);
   });
 });
@@ -87,8 +83,10 @@ router.post("/user/new", function(req, res) {
 router.get("/item/:id", function(req, res) {
   var id = parseInt(req.params.id);
   gift.findOne(id, function returnDataToController(result) {
-    res.render("item", { id });
-    // res.json({ result });
+    var hbsObject = result[0];
+    console.log(hbsObject);
+    // res.render("item", result);
+    res.render("item", hbsObject);
   });
 });
 
