@@ -60,7 +60,7 @@
         <li>
             <div class="row">
                 <div class="col-md-8">
-                    <a href="#" data-id="{{this.id}}" class="item-title">
+                    <a href="/item/{{this.id}}" data-id="{{this.id}}" class="item-title" target="_blank">
                         <h1 class="list-group-item-heading">{{title}}</h1>
                     </a>
                     <br>
@@ -114,7 +114,10 @@
 
 <script>
     $(".item-title").on("click", function (event) {
-        event.preventDefault();
-        console.log(this);
-    })
+        var id = ($(this).data("id"));
+        console.log(id);
+        $.get("/item", id, function () {
+
+        });
+    });
 </script>
