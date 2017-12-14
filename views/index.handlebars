@@ -123,27 +123,21 @@
 	<!-- /.container-fluid -->
 
 </footer>
-{{!--
+
 <script type="text/javascript">
 	$("#search-btn").on("click", function (event) {
 
 		event.preventDefault();
 
 		let newSearched = {
-			searched: $("#gg-search").val().trim();
+			searched: $("#gg-search").val().trim()
 		};
+		console.log(newSearched);
 
-		$.ajax("/", {
-			type: "POST",
-			data: newSearched
-		}).then(
-			function () {
-				console.log("created new search");
-				// Reload the page to get the updated list
-				location.reload();
-			}
-			);
+		$.get("/list", newSearched, function (result) {
+			console.log(result);
+		})
 	});
 
 
-</script> --}}
+</script>

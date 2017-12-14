@@ -19,7 +19,22 @@ router.get("/post", function(req, res) {
 router.get("/signup", function(req, res) {
   res.render("signup");
 });
-
+router.get("/list/:search", function(req, res) {
+  var searhced = req.params.search;
+  gift.all(function returnDataToController(data) {
+    var hbsObject = {
+      gifts: data
+    };
+    let titleArry = [];
+    for (i = 0; i < hbsObject.gifts.length; i++) {
+      let currentTitle = hbsObject.gifts[i].title;
+      titleArry.push(currentTitle);
+    }
+    console.log(titleArry.includes(searhced));
+    console.log(titleArry);
+    // console.log(hbsObject.gifts);
+  });
+});
 router.get("/list", function(req, res) {
   gift.all(function returnDataToController(data) {
     var info = { gifts: [] };
@@ -29,7 +44,7 @@ router.get("/list", function(req, res) {
       var currentGift = data[i];
       info.gifts.push(currentGift);
     }
-
+    console.log(info);
     //console.log(info);
     res.render("list", info);
   });
