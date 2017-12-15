@@ -1,0 +1,113 @@
+<nav class="navbar navbar-default" id="listNavbar">
+
+    <div class="container-fluid">
+
+
+        <ul class="nav navbar-nav navbar-left nav-large-font">
+            <li>
+                <a href="signup">
+                    <button class="btn btn-info btn-round">Sign up</button>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <button class="btn btn-info btn-round" data-toggle="modal" data-target="#myModal">Log in</button>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-center nav-large-font">
+            <li>
+                <a href="/" id="navHomeLink">GiftList</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right nav-large-font">
+            <li>
+                <a href="post">
+                    <button class="btn btn-give btn-info">Give!</button>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</nav>
+
+
+
+<!-- Log in modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="login-card">
+        <h1>Log in</h1>
+        <br>
+        <form>
+            <input type="text" name="user" placeholder="Username">
+            <input type="password" name="pass" placeholder="Password">
+            <input type="submit" name="login" class="login login-submit" value="Log in">
+        </form>
+
+        <div class="login-help">
+            <a href="singup">Register</a> •
+            <a href="#">Forgot Password</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <ul>
+        {{#each gifts}}
+        <hr>
+        <li>
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="/item/{{this.id}}" data-id="{{this.id}}" class="item-title" target="_blank">
+                        <h1 class="list-group-item-heading">{{title}}</h1>
+                    </a>
+                    <br>
+                    <p>{{item_description}}</p>
+                </div>
+                <div class=" col-md-4 ">
+                    <img src="http://lorempixel.com/400/200/ ">
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
+
+<footer class="navbar navbar-default navbar-fixed-bottom ">
+
+    <div class="container-fluid ">
+
+        <ul class="nav navbar-nav ">
+            <li>
+                <a href="# ">Advestising</a>
+            </li>
+            <li>
+                <a href="# ">Business</a>
+            </li>
+            <li>
+                <a href="# ">About</a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right ">
+            <li>
+                <a href="# ">Privacy</a>
+            </li>
+            <li>
+                <a href="# ">Terms</a>
+            </li>
+            <li>
+                <a href="# ">Settings</a>
+            </li>
+            <li>
+                <a href="# ">Use Google.co.th</a>
+            </li>
+        </ul>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</footer>

@@ -17,6 +17,12 @@ var gift = {
     orm.findOne("gifts", id, function returnDataToModel(results) {
       returnDataToController(results);
     });
+  },
+
+  searched: function(searchTerm, returnDataToController) {
+    orm.searched("gifts", "title", searchTerm, function(results) {
+      returnDataToController(results);
+    });
   }
 };
 

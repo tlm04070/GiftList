@@ -58,7 +58,7 @@
 				<div class="button-adjustment">
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
-							<a href="/list">
+							<a href="#">
 								<button class="btn btn-md search-btn" id="search-btn">Search</button>
 							</a>
 						</div>
@@ -125,19 +125,18 @@
 </footer>
 
 <script type="text/javascript">
+
+	var recalledData;
+
 	$("#search-btn").on("click", function (event) {
-
 		event.preventDefault();
-
-		let newSearched = {
-			searched: $("#gg-search").val().trim()
-		};
+		let newSearched = $("#gg-search").val().trim()
 		console.log(newSearched);
-
-		$.get("/list", newSearched, function (result) {
-			console.log(result);
-		})
+		window.location.href = "/search/" + newSearched
 	});
+
+
+
 
 
 </script>

@@ -29,6 +29,20 @@ var orm = {
       returnDataToModel(result);
     });
   },
+
+  searched: function(tableInput, col, searchTerm, returnDataToModel) {
+    connection.query(
+      `select * from ${tableInput} where ?? like ?;`,
+      [col, searchTerm],
+      function(err, result) {
+        if (err) {
+          throw err;
+        }
+        console.log(result);
+        returnDataToModel(result);
+      }
+    );
+  },
   create: function(tableInput, cols, vals, returnDataToModel) {
     console.log("arguments: " + arguments[1]);
     console.log("arguments: (" + arguments[2] + ");");
