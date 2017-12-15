@@ -1,7 +1,3 @@
-<h1>{{title}}</h1>
-
-
-{{!--
 <nav class="navbar navbar-default navbar-fixed-top">
 
     <div class="container-fluid">
@@ -37,99 +33,169 @@
 
 </nav>
 
-<div class="vertical-center">
-    <div class="container container-center">
-        <div class="row">
-            <div class="text-center col-md-12">
+<div class="container">
 
-                <!-- INSERT TITLE HERE -->
-
-                <h1 id="title" class="text-center">Testing</h1>
-
-                <div class="form-adjustment" id="serach-form">
-                    <form action="#" class="form-inline">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control input-lg" id="gg-search">
-                                <div class="input-group-addon input-group-addon-transparent">
-                                    <i class="fa fa-microphone fa-lg"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-
-                <div class="button-adjustment">
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
-                            <a href="/list">
-                                <button class="btn btn-md search-btn" id="search-btn">Search</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-12 item-title">
+            <h1>{{ title }}</h1>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <img src="https://www.wikihow.com/images/thumb/b/be/User-Completed-Image-Price-Used-Furniture-2016.05.22-20.23.44.0.jpg/670px-User-Completed-Image-Price-Used-Furniture-2016.05.22-20.23.44.0.jpg"
+                class="placehold-item" />
+
+            <p>{{ item_description }}
+                <br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint voluptatibus soluta quas officia tempore
+                nulla ea cumque, alias esse sapiente illo libero magnam cum quasi, optio delectus officiis repellendus dolore?
+            </p>
+
+        </div>
+        <div class="col-md-4">
+            <!-- <img src="https://www.borrowmypickup.com/uploads/9/6/4/9/96490842/p1065.png" class="placehold-map"> -->
+            <div id="map"></div>
+
+            <p id="item-local">{{ city_state }}</p>
+            <p>{{ contact }}</p>
+        </div>
+    </div>
+
 </div>
 
+
 <!-- Log in modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="login-card">
+<div class="modal fade " id="myModal " role="dialog ">
+    <div class="login-card ">
         <h1>Log in</h1>
         <br>
         <form>
-            <input type="text" name="user" placeholder="Username">
-            <input type="password" name="pass" placeholder="Password">
-            <input type="submit" name="login" class="login login-submit" value="Log in">
+            <input type="text " name="user " placeholder="Username ">
+            <input type="password " name="pass " placeholder="Password ">
+            <input type="submit " name="login " class="login login-submit " value="Log in ">
         </form>
 
-        <div class="login-help">
-            <a href="singup">Register</a> •
-            <a href="#">Forgot Password</a>
+        <div class="login-help ">
+            <a href="singup ">Register</a> •
+            <a href="# ">Forgot Password</a>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="jumbotron primary">
-        <div class="row">
+<!-- End Modal -->
+
+<!--
+    <div class="container ">
+
+        <div class="row ">
             <h1>{{title}}</h1>
         </div>
+
     </div>
-</div>
-<footer class="navbar navbar-default navbar-fixed-bottom">
+-->
+<footer class="navbar navbar-default navbar-fixed-bottom ">
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
 
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav ">
             <li>
-                <a href="#">Advestising</a>
+                <a href="# ">Advestising</a>
             </li>
             <li>
-                <a href="#">Business</a>
+                <a href="# ">Business</a>
             </li>
             <li>
-                <a href="#">About</a>
+                <a href="# ">About</a>
             </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right ">
             <li>
-                <a href="#">Privacy</a>
+                <a href="# ">Privacy</a>
             </li>
             <li>
-                <a href="#">Terms</a>
+                <a href="# ">Terms</a>
             </li>
             <li>
-                <a href="#">Settings</a>
+                <a href="# ">Settings</a>
             </li>
             <li>
-                <a href="#">Use Google.co.th</a>
+                <a href="# ">Use Google.co.th</a>
             </li>
         </ul>
 
     </div>
     <!-- /.container-fluid -->
 
-</footer> --}}
+</footer>
+
+<script type="text/javascript">
+
+
+
+    var itemLocal = ($("#item-local")[0].innerHTML);
+    console.log(itemLocal);
+    /*
+        geocoder.geocode(address, function (err, data) {
+            if (err) throw err;
+            //lat = JSON.stringify(data.results[0].geometry.bounds.northeast.lat);
+    
+            console.log(JSON.stringify(data.results[0].geometry.bounds.northeast.lat));
+    
+    
+        })
+    
+    
+        var mymap = L.map('mapid').setView([35.22, -80.84], 13);
+    
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoiZ2lmdGxpc3QiLCJhIjoiY2piNndleHZwM3FhNDMybWsyd2QwemE2aCJ9.D1c_xSbrFI-Mgs6DabKssw'
+        }).addTo(mymap);
+    
+    
+        var circle = L.circle([35.22, -80.84], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 200
+        }).addTo(mymap);
+    
+    
+    
+    
+    */
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: { lat: -34.397, lng: 150.644 }
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        //document.getElementById('submit').addEventListener('click', function () {
+        geocodeAddress(geocoder, map);
+        //});
+    }
+
+    function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('item-local').innerText;          // CHANGED 'address' TO 'item-local'
+
+        console.log(address);
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9KjPEhi5w5ua9bBzZYlMI3qT4iaUEjLY&callback=initMap">
+</script>

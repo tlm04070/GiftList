@@ -3,10 +3,12 @@
 .top-bar {
   background-color: #ff9454;
 }
+
 #listNavbar {
   background-color: #ff9454;
   border-bottom: none;
 }
+
 #navHomeLink {
   font-family: "Righteous", cursive;
   text-shadow: 2px 2px #fff;
@@ -19,7 +21,7 @@
   text-shadow: 5px 5px #00b1db;
 }
 
-.navbar-default .nav-large-font > li > a {
+.navbar-default .nav-large-font>li>a {
   color: #000;
   font-size: 1.0625em;
 }
@@ -40,7 +42,7 @@ button.btn-give {
   border-radius: 17px;
 }
 
-.navbar-nav > li,
+.navbar-nav>li,
 .navbar-nav {
   float: left !important;
 }
@@ -52,6 +54,7 @@ button.btn-give {
 .navbar-right {
   float: right !important;
 }
+
 
 /* MAIN COMPONENTS */
 
@@ -70,11 +73,13 @@ body {
 #post-title {
   margin-top: 2%;
 }
+
 #title {
   font-family: "Righteous", cursive;
   font-size: 52px;
   color: #00b1db;
 }
+
 
 /* FORM */
 
@@ -93,6 +98,7 @@ body {
 .input-group-addon-transparent {
   background-color: transparent;
 }
+
 
 /* BUTTONS */
 
@@ -260,10 +266,21 @@ input[type="password"]:hover {
   background-color: #00b1db;
 }
 
+
+/* TAKE THIS OUT IF FOOTER IS OUT OF PLACE */
+
+
+/*
 #postFooter {
-  position: relative;
-  margin-top: 2%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
+*/
 
 .list-group-item-heading {
   font-family: "Righteous", cursive;
@@ -279,4 +296,18 @@ hr {
   /* old IE */
   background-color: #ff9454;
   /* Modern Browsers */
+}
+
+.item-title {
+  margin-top: 100px;
+}
+
+#map {
+  height: 300px;
+  width: 300px;
+}
+
+.placehold-item {
+  height: 600;
+  width: 450;
 }

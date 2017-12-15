@@ -3,12 +3,12 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root",
+  password: "delilah",  // CHANGE BACK TO ROOT
   database: "giftlist_db",
   port: 3306
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
     return;

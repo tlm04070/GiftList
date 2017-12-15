@@ -1,7 +1,6 @@
 {
   "name": "burger-sequelize",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "mocha",
@@ -25,10 +24,18 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "geocoder": "^0.2.3",
     "handlebars": "^4.0.11",
     "mocha": "^4.0.1",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
-    "sequelize": "^4.27.0"
-  }
+    "nodemon": "^1.12.7",
+    "sequelize": "^4.28.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
 }
