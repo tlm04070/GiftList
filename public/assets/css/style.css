@@ -260,10 +260,10 @@ input[type="password"]:hover {
   background-color: #00b1db;
 }
 
-#postFooter {
+/* #postFooter {
   position: relative;
   margin-top: 2%;
-}
+} */
 
 .list-group-item-heading {
   font-family: "Righteous", cursive;
@@ -279,4 +279,18 @@ hr {
   /* old IE */
   background-color: #ff9454;
   /* Modern Browsers */
+}
+
+.item-title {
+  margin-top: 100px;
+}
+
+#map {
+  height: 300px;
+  width: 300px;
+}
+
+.placehold-item {
+  height: 600;
+  width: 450;
 }

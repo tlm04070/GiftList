@@ -5,7 +5,7 @@ var router = express.Router();
 // Import the model (cat.js) to use its database functions.
 var gift = require("../models/gift.js");
 var user = require("../models/user.js");
-
+var manipulateData = require("./helpers.js");
 // Create all our routes and set up logic within those routes where required.
 
 router.get("/", function(req, res) {
@@ -20,6 +20,24 @@ router.get("/signup", function(req, res) {
   res.render("signup");
 });
 
+router.get("/search/:search", function(req, res) {
+  var searched = req.params.search;
+  console.log(searched);
+  var finalSent = {};
+  gift.searched(searched, function(data) {
+    var hbsObject = {
+      gifts: data
+    };
+    res.render("list", hbsObject);
+  });
+});
+
+// router.get("/results", function(req, res) {
+//   var vals = res.locals.finalArray;
+//   gift.searched(vals, function returnDataToController(data) {
+//     res.json(data);
+//   });
+// });
 router.get("/list", function(req, res) {
   gift.all(function returnDataToController(data) {
     var info = { gifts: [] };
@@ -29,7 +47,7 @@ router.get("/list", function(req, res) {
       var currentGift = data[i];
       info.gifts.push(currentGift);
     }
-
+    console.log(info);
     //console.log(info);
     res.render("list", info);
   });

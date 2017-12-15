@@ -58,7 +58,7 @@
 				<div class="button-adjustment">
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
-							<a href="/list">
+							<a href="#">
 								<button class="btn btn-md search-btn" id="search-btn">Search</button>
 							</a>
 						</div>
@@ -123,27 +123,20 @@
 	<!-- /.container-fluid -->
 
 </footer>
-{{!--
+
 <script type="text/javascript">
+
+	var recalledData;
+
 	$("#search-btn").on("click", function (event) {
-
 		event.preventDefault();
-
-		let newSearched = {
-			searched: $("#gg-search").val().trim();
-		};
-
-		$.ajax("/", {
-			type: "POST",
-			data: newSearched
-		}).then(
-			function () {
-				console.log("created new search");
-				// Reload the page to get the updated list
-				location.reload();
-			}
-			);
+		let newSearched = $("#gg-search").val().trim()
+		console.log(newSearched);
+		window.location.href = "/search/" + newSearched
 	});
 
 
-</script> --}}
+
+
+
+</script>
