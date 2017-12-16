@@ -126,10 +126,15 @@
 	var recalledData;
 
 	$("#search-btn").on("click", function (event) {
+
 		event.preventDefault();
-		let newSearched = $("#gg-search").val().trim()
-		console.log(newSearched);
-		window.location.href = "/search/" + newSearched
+		let newSearched = $("#gg-search").val().trim();
+		if (newSearched) {
+			console.log(newSearched);
+			windowocation.href = "/search/" + newSearched
+		} else {
+			window.location.href = "/list"
+		};
 	});
 
 

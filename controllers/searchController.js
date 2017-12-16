@@ -6,6 +6,7 @@ var router = express.Router();
 var gift = require("../models/gift.js");
 var user = require("../models/user.js");
 var manipulateData = require("./helpers.js");
+var cloudinary = require("./imghelper");
 // Create all our routes and set up logic within those routes where required.
 
 router.get("/", function(req, res) {
@@ -18,6 +19,12 @@ router.get("/post", function(req, res) {
 
 router.get("/signup", function(req, res) {
   res.render("signup");
+});
+
+router.get("/upload/:file", function(req, res) {
+  var file = req.params.file;
+  var uploaded = cloudinary(file);
+  res.json(uploaded);
 });
 
 router.get("/search/:search", function(req, res) {
