@@ -55,7 +55,7 @@
 
 <div class="container">
     <ul>
-        {{#each gifts}}
+        {{#if gifts}} {{#each gifts}}
         <hr>
         <li>
             <div class="row">
@@ -71,7 +71,21 @@
                 </div>
             </div>
         </li>
-        {{/each}}
+        {{/each}} {{else}}
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="list-group-item-heading">No results</h1>
+                <br>
+                <p>click
+                    <a href="/list">
+                        <b>Here</b>
+                    </a> to browse the full list of items
+                </p>
+            </div>
+        </div>
+
+        {{/if}}
     </ul>
 </div>
 

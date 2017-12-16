@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var orm = require("./config/orm.js");
 var session = require("express-session");
+var cloudinary = require("./public/assets/js/cloudinaryInfo");
 
 // Sets up the Express App
 // =============================================================

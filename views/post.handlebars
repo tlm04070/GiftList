@@ -92,7 +92,7 @@
 	</div>
 </div>
 
-<footer class="navbar navbar-default navbar-fixed-bottom container-fluid" id="postFooter">
+<footer class="navbar navbar-default container-fluid" id="postFooter">
 
 	<div class="container-fluid">
 
@@ -127,6 +127,7 @@
 	<!-- /.container-fluid -->
 
 </footer>
+
 <script type="text/javascript">
 
 	$("#submit").on("click", function (event) {
@@ -140,6 +141,7 @@
 			description: $("#description").val().trim(),
 			upload: $("#upload").val().trim()
 		};
+
 		console.log(newGift);
 		$.ajax({
 			method: "POST",

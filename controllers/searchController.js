@@ -108,7 +108,7 @@ router.get("/item/:id", function(req, res) {
   });
 });
 
-router.get("*", function(req, res) {
-  res.render("index");
-});
+// router.get("*", function(req, res) {
+//   res.render("index");
+// });
 module.exports = router;
