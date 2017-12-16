@@ -67,18 +67,18 @@
                     <p>{{item_description}}</p>
                 </div>
                 <div class=" col-md-4 ">
-                    <img src="{{this.img_link}} ">
+                    <img src="{{this.img_link}} " style="width: 100%; height: 100%;">
                 </div>
             </div>
         </li>
         {{/each}} {{else}}
         <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="list-group-item-heading">No results</h1>
+        <div class=" row ">
+            <div class="col-md-12 ">
+                <h1 class="list-group-item-heading ">No results</h1>
                 <br>
                 <p>click
-                    <a href="/list">
+                    <a href="/list ">
                         <b>Here</b>
                     </a> to browse the full list of items
                 </p>
@@ -127,10 +127,10 @@
 </footer>
 
 <script>
-    $(".item-title").on("click", function (event) {
-        var id = ($(this).data("id"));
+    $(".item-title ").on("click ", function (event) {
+        var id = ($(this).data("id "));
         console.log(id);
-        $.get("/item", id, function () {
+        $.get("/item ", id, function () {
 
         });
     });

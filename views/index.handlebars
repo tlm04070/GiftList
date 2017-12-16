@@ -131,7 +131,7 @@
 		let newSearched = $("#gg-search").val().trim();
 		if (newSearched) {
 			console.log(newSearched);
-			windowocation.href = "/search/" + newSearched
+			window.location.href = "/search/" + newSearched
 		} else {
 			window.location.href = "/list"
 		};
