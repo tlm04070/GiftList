@@ -1,4 +1,8 @@
 /* NAV COMPONENTS */
+html,body{
+  height: 100%;
+}
+
 
 .top-bar {
   background-color: #ff9454;
@@ -261,10 +265,11 @@ input[type="password"]:hover {
 }
 
 #postFooter {
-  position: relative;
-  margin-top: 2%;
-  bottom: -20px;
-}
+  position: absolute;
+  bottom: 0%;
+  left: 0%; 
+  width: 100%;
+} 
 
 .list-group-item-heading {
   font-family: "Righteous", cursive;
@@ -294,4 +299,13 @@ hr {
 .placehold-item {
   height: 600;
   width: 450;
+}
+
+#p1{
+  font-size: 18px;
+}
+
+h1{
+  font-family: "Righteous", cursive;  
+  color: #00b1db;  
 }
