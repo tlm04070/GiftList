@@ -133,6 +133,16 @@
 	$("#submit").on("click", function (event) {
 		event.preventDefault();
 
+		var fd = new FormData();
+
+		fd.append('itemTitle', $("#itemTitle").val().trim());
+		fd.append('location', $("#location").val().trim());
+		fd.append('category', $("#category").val().trim());
+		fd.append('contact', $("#contact").val().trim());
+		fd.append('description', $("#description").val().trim());
+		fd.append('upload', $("#upload")[0].files[0]);
+
+
 		var newGift = {
 			itemTitle: $("#itemTitle").val().trim(),
 			location: $("#location").val().trim(),
@@ -144,6 +154,7 @@
 
 		console.log(newGift);
 
+		/*
 		$.ajax({
 			method: "POST",
 			url: "/upload",
@@ -153,15 +164,18 @@
 			console.log("response: " + result);
 
 		});
+		*/
 
 		$.ajax({
 			method: "POST",
 			url: "/gift",
+			processData: false,
+			contentType: false,
 			dataType: "json",
-			data: newGift
+			data: fd
 		}).done(function (result) {
 			//response of post result comes from res.json({result})
-			console.log("response: " + result);
+			console.log("response", result);
 			var form = document.getElementById("post-form");
 			form.reset();
 

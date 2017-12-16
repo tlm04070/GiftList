@@ -1,13 +1,21 @@
 var express = require("express");
-
+var multiparty = require("multiparty");
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
 var gift = require("../models/gift.js");
 var user = require("../models/user.js");
 var manipulateData = require("./helpers.js");
-var cloudinary = require("./imghelper");
+//var cloudinary = require("./imghelper");
 // Create all our routes and set up logic within those routes where required.
+
+var cloudinary = require("cloudinary");
+
+cloudinary.config({
+  cloud_name: "tlm04070",
+  api_key: "577913342161751",
+  api_secret: "MAFKgFa4JG1hnXG45O5EJgoZ7qY"
+});
 
 router.get("/", function(req, res) {
   res.render("index");
@@ -23,8 +31,9 @@ router.get("/signup", function(req, res) {
 
 router.get("/upload/:file", function(req, res) {
   var file = req.params.file;
-  var uploaded = cloudinary(file);
-  res.json(uploaded);
+  var uploaded = cloudinary(file, function(result) {
+    res.json(result);
+  });
 });
 
 router.get("/search/:search", function(req, res) {
@@ -73,17 +82,32 @@ router.get("/all", function(req, res) {
 
 router.post("/gift", function(req, res) {
   // gift.create()
-  var cols = "title, city_state, category, contact, item_description, img_link";
-  var vals = [
-    req.body.itemTitle,
-    req.body.location,
-    req.body.category,
-    req.body.contact,
-    req.body.description,
-    req.body.upload
-  ];
-  gift.create(cols, vals, function returnDataToController(result) {
-    res.json({ result });
+
+  var form = new multiparty.Form();
+
+  form.parse(req, function(err, fields, files) {
+    //console.log("files", files);
+
+    console.log(fields);
+    //return res.status(200).end();
+
+    cloudinary.uploader.upload(files.upload[0].path, function(result) {
+      //console.log(result);
+
+      var cols =
+        "title, city_state, category, contact, item_description, img_link";
+      var vals = [
+        fields.itemTitle,
+        fields.location,
+        fields.category,
+        fields.contact,
+        fields.description,
+        result.secure_url
+      ];
+      gift.create(cols, vals, function returnDataToController(result) {
+        res.status(200).json(result);
+      });
+    });
   });
 });
 

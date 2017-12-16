@@ -1,4 +1,4 @@
-module.exports = function(filePath) {
+module.exports = function(filePath, cb) {
   var cloudinary = require("cloudinary");
 
   cloudinary.config({
@@ -9,5 +9,6 @@ module.exports = function(filePath) {
 
   cloudinary.uploader.upload(filePath, function(result) {
     console.log(result);
+    cb(result);
   });
 };
