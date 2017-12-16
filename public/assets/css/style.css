@@ -260,10 +260,11 @@ input[type="password"]:hover {
   background-color: #00b1db;
 }
 
-/* #postFooter {
+#postFooter {
   position: relative;
   margin-top: 2%;
-} */
+  bottom: -20px;
+}
 
 .list-group-item-heading {
   font-family: "Righteous", cursive;
